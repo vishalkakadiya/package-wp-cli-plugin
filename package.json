@@ -6,7 +6,7 @@
     "create-wp-cli-plugin": "./bin/create-wp-cli-plugin.js"
   },
   "keywords": [
-    "wordpress",
+    "WordPress",
     "wp-cli",
     "plugin",
     "scaffold",
@@ -14,6 +14,15 @@
     "create",
     "cli"
   ],
+  "author": "Vishal Kakadiya <vishalkakadiya123@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vishalkakadiya/create-wp-cli-plugin.git"
+  },
+  "homepage": "https://github.com/vishalkakadiya/create-wp-cli-plugin#readme",
+  "bugs": {
+    "url": "https://github.com/vishalkakadiya/create-wp-cli-plugin/issues"
+  },
   "license": "MIT",
   "engines": {
     "node": ">=16.0.0"
