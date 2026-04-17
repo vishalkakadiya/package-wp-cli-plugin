@@ -1,0 +1,31 @@
+{
+  "name": "create-wp-cli-plugin",
+  "version": "1.0.0",
+  "description": "Scaffold a WordPress plugin with a WP-CLI command, dry-run support, and WordPress best practices",
+  "bin": {
+    "create-wp-cli-plugin": "./bin/create-wp-cli-plugin.js"
+  },
+  "keywords": [
+    "wordpress",
+    "wp-cli",
+    "plugin",
+    "scaffold",
+    "generator",
+    "create",
+    "cli"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "files": [
+    "bin/",
+    "src/"
+  ],
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "commander": "^11.1.0",
+    "fs-extra": "^11.2.0",
+    "inquirer": "^8.2.6"
+  }
+}
