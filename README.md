@@ -6,10 +6,12 @@
 
 ```bash
 # Interactive (recommended)
-npx create-wp-cli-plugin
+git clone git@github.com:vishalkakadiya/create-wp-cli-plugin.git
+
+node /PATH_TO_REPO/create-wp-cli-plugin/bin/create-wp-cli-plugin.js create-wp-cli-plugin
 
 # Pass the slug upfront to skip the first prompt
-npx create-wp-cli-plugin my-awesome-plugin
+node /PATH_TO_REPO/create-wp-cli-plugin/bin/create-wp-cli-plugin.js my-awesome-plugin
 ```
 
 The CLI asks a handful of questions, then writes a ready-to-activate WordPress plugin.
