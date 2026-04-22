@@ -36,7 +36,7 @@ function toConstant(slug) {
 /** Lowercases vendor name for use in composer package name */
 function toComposerVendor(vendor) {
   return vendor
-    .replace(/([A-Z])/g, (m, c, i) => (i > 0 ? '-' : '') + c.toLowerCase())
+    .replace(/([A-Z])/g, (_m, c, i) => (i > 0 ? '-' : '') + c.toLowerCase())
     .replace(/^-/, '');
 }
 
@@ -147,4 +147,4 @@ async function collectAnswers(initialSlug) {
   };
 }
 
-module.exports = { collectAnswers };
+module.exports = { collectAnswers, toSlug, toTitleCase, toNamespace, toConstant, toComposerVendor };
