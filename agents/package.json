@@ -1,0 +1,14 @@
+{
+  "name": "agents",
+  "private": true,
+  "description": "AI coding and QA agents for package-wp-cli-plugin",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0"
+  }
+}

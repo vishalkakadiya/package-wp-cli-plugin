@@ -1,0 +1,75 @@
+name: AI Agent Workflow
+
+on:
+  # Trigger 1: label an issue with "ai-fix" to auto-run
+  issues:
+    types: [labeled]
+
+  # Trigger 2: run manually and provide an issue URL
+  workflow_dispatch:
+    inputs:
+      issue_url:
+        description: "GitHub issue URL (e.g. https://github.com/owner/repo/issues/42)"
+        required: true
+        type: string
+
+jobs:
+  run-agents:
+    runs-on: ubuntu-latest
+
+    # Only run when:
+    #   - manually dispatched, OR
+    #   - an issue is labeled with "ai-fix"
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'issues' && github.event.label.name == 'ai-fix')
+
+    permissions:
+      contents: write       # push fix branch
+      pull-requests: write  # create PR, post review
+      issues: read          # read issue details
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          # Use PAT instead of GITHUB_TOKEN so the pushed branch can trigger
+          # other workflows (GITHUB_TOKEN pushes are intentionally blocked from
+          # triggering new workflow runs by GitHub).
+          token: ${{ secrets.AGENT_PAT }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install agent dependencies
+        run: npm install
+        working-directory: agents
+
+      - name: Configure Git identity
+        run: |
+          git config user.name  "AI Agent Bot"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Authenticate git push via PAT
+        run: |
+          git remote set-url origin \
+            https://x-access-token:${{ secrets.AGENT_PAT }}@github.com/${{ github.repository }}.git
+
+      - name: Resolve issue URL
+        id: issue
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "url=${{ github.event.inputs.issue_url }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "url=${{ github.server_url }}/${{ github.repository }}/issues/${{ github.event.issue.number }}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Run agent workflow
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.AGENT_PAT }}
+          GITHUB_WORKSPACE: ${{ github.workspace }}
+        run: node agents/index.js "${{ steps.issue.outputs.url }}"
