@@ -484,7 +484,7 @@ GPL-2.0-or-later — see [GNU GPL v2](https://www.gnu.org/licenses/gpl-2.0.html)
 
 ---
 
-*Scaffolded with [create-wp-cli-plugin](https://github.com/your-handle/create-wp-cli-plugin) v${version}.*
+*Scaffolded with [package-wp-cli-plugin](https://github.com/vishalkakadiya/package-wp-cli-plugin) v${version}.*
 `;
 }
 

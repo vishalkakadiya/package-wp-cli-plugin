@@ -6,7 +6,7 @@ const { run } = require('../src/index');
 const pkg = require('../package.json');
 
 program
-  .name('create-wp-cli-plugin')
+  .name('package-wp-cli-plugin')
   .description('Scaffold a WordPress plugin with a WP-CLI command and dry-run support')
   .version(pkg.version, '-v, --version')
   .argument('[slug]', 'Plugin slug (kebab-case, e.g. my-awesome-plugin)')
