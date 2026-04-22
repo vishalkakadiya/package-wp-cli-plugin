@@ -1,9 +1,9 @@
 {
-  "name": "create-wp-cli-plugin",
+  "name": "package-wp-cli-plugin",
   "version": "1.0.0",
   "description": "Scaffold a WordPress plugin with a WP-CLI command, dry-run support, and WordPress best practices",
   "bin": {
-    "create-wp-cli-plugin": "./bin/create-wp-cli-plugin.js"
+    "package-wp-cli-plugin": "./bin/package-wp-cli-plugin.js"
   },
   "keywords": [
     "WordPress",
@@ -17,11 +17,11 @@
   "author": "Vishal Kakadiya <vishalkakadiya123@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/vishalkakadiya/create-wp-cli-plugin.git"
+    "url": "https://github.com/vishalkakadiya/package-wp-cli-plugin.git"
   },
-  "homepage": "https://github.com/vishalkakadiya/create-wp-cli-plugin#readme",
+  "homepage": "https://github.com/vishalkakadiya/package-wp-cli-plugin#readme",
   "bugs": {
-    "url": "https://github.com/vishalkakadiya/create-wp-cli-plugin/issues"
+    "url": "https://github.com/vishalkakadiya/package-wp-cli-plugin/issues"
   },
   "license": "MIT",
   "engines": {

@@ -15,7 +15,7 @@ async function run({ slug } = {}) {
 function printBanner() {
   console.log('');
   console.log(chalk.bold('  ┌─────────────────────────────────┐'));
-  console.log(chalk.bold('  │   ') + chalk.bold.blue('create-wp-cli-plugin') + chalk.bold('       │'));
+  console.log(chalk.bold('  │   ') + chalk.bold.blue('package-wp-cli-plugin') + chalk.bold('      │'));
   console.log(chalk.bold('  │   ') + chalk.gray('WordPress Plugin Scaffolder') + chalk.bold('  │'));
   console.log(chalk.bold('  └─────────────────────────────────┘'));
   console.log('');
